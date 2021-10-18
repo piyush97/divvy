@@ -11,7 +11,7 @@ module.exports = {
       accounts: [privateKey],
     },
     mainnet: {
-      url: "https://polygon-mainnet.infura.io/v3/${projectId}",
+      url: `https://polygon-mainnet.infura.io/v3/${projectId}`,
       accounts: [privateKey],
     },
   },
