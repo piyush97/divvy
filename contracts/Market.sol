@@ -42,4 +42,29 @@ contract NFTMarket is ReentrancyGuard {
     function getListingPrice() public view returns (uint256) {
         return listingPrice;
     }
+
+    function createMarketItem(
+        address nftContract,
+        uint256 tokenId,
+        uint256 price
+    ) public payable nonReentrant {
+        require(price > 0, "Price must be at 1 wei");
+        require(
+            msg.value == listingPrice,
+            "Price must be equal to listing Price"
+        );
+
+        _itemsIds.increment();
+        uint256 itemId = _itemsIds.current();
+
+        idToMarketItem[itemId] = MarketItem(
+            itemId,
+            nftContract,
+            tokenId,
+            payable(msg.sender),
+            payable(address(0)),
+            price,
+            false
+        );
+    }
 }
