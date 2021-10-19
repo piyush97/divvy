@@ -1,7 +1,9 @@
+const { PROJECT_ID, PRIVATE_KEY } = require("./secret");
+
 require("@nomiclabs/hardhat-waffle");
 
-const projectId = process.env.PROJECT_ID;
-const privateKey = process.env.PRIVATE_KEY;
+const projectId = PROJECT_ID;
+const privateKey = PRIVATE_KEY;
 
 module.exports = {
   networks: {
