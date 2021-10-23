@@ -1,6 +1,5 @@
 import axios from "axios";
 import { ethers } from "ethers";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import Web3Modal from "web3modal";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
@@ -77,7 +76,7 @@ const Home = () => {
         <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-4">
           {nfts.map((nft, i) => (
             <div key={i} className="overflow-hidden border shadow rounded-xl">
-              <Image src={nft.image} alt="nft" />
+              <img src={nft.image} alt="nft" />
               <div className="p-4">
                 <p
                   style={{ height: "64px" }}
@@ -91,7 +90,7 @@ const Home = () => {
               </div>
               <div className="p-4 bg-black">
                 <p className="mb-4 text-2xl font-bold text-white">
-                  {nft.price} ETH
+                  {nft.price} Matic
                 </p>
                 <button
                   className="w-full px-12 py-2 font-bold text-white bg-pink-500 rounded"
