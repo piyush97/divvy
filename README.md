@@ -45,6 +45,10 @@ module.exports = { PRIVATE_KEY, PROJECT_ID };
 ### 3. Running the frontend locally
 
 ```bash
-  ➜ yarn dev  
+  ➜ yarn dev
 ```
 
+
+_____________________
+
+<p align="center">Made with ❤️ by <a href="https://piyushmehta.com">Piyush Mehta</a></p>
