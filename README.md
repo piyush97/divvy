@@ -1,15 +1,4 @@
-# Basic Sample Hardhat Project
+<h1 align="center">  <img src="public/Divvy.png" height="120px"/></h1>
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+<h3 align="center">Divvy is a Decentralised Dapp made on Web3. It's a Marketplace for artists to sell their digital assets, earn royality and make some sales on the polygon matic network.</h3>
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
