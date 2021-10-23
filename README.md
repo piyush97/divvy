@@ -13,6 +13,13 @@
 
 ## How to run this project locally
 
+### Prerequisites
+
+1. Git
+1. Node: any 12.x version starting with v12.0.0 or greater
+1. Yarn: See Yarn website for installation instructions
+1. A fork of the repo (for any contributions)
+
 ### 1. Setting up local env
 
 1. Create `secret.js` in the root of the project 
