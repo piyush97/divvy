@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
+import Loader from "react-loader-spinner";
 import Web3Modal from "web3modal";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
@@ -70,14 +71,30 @@ const Home = () => {
     loadNFTs();
   }
   if (loadingState === "loaded" && !nfts.length)
-    return <h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>;
+    return (
+      <h1 className="min-h-screen px-20 py-10 text-3xl flex-center">
+        <center className="top-1/2 flex-center">
+          No items in marketplace
+          <Loader
+            type="BallTriangle"
+            color="#EC4899"
+            height={100}
+            width={100}
+            timeout={30000}
+          />
+        </center>
+      </h1>
+    );
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <div className="px-4" style={{ maxWidth: "1600px" }}>
-        <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-3">
           {nfts.map((nft, i) => (
-            <div key={i} className="overflow-hidden border shadow rounded-xl">
-              <img src={nft.image} alt="nft" />
+            <div
+              key={i}
+              className="max-h-screen overflow-hidden border shadow rounded-xl"
+            >
+              <img src={nft.image} alt="nft" className="h-auto" />
               <div className="p-4">
                 <p
                   style={{ height: "64px" }}

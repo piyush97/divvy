@@ -15,7 +15,7 @@ const Navbar = () => {
       <Head>
         <title>Divvy • Decentralized NFT Marketplace by Piyush97</title>
       </Head>
-      <nav className="p-6 border-b">
+      <nav className="sticky p-6 border-b">
         <p className="text-4xl font-bold">
           <Image src={logo} height="80px" width="280px" alt="Divvy logo" />
         </p>
