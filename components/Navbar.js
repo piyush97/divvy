@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
+import { FaGithub } from "react-icons/fa";
 import logo from "../public/Divvy.png";
 import Menu from "./Menu";
-
 /**
  * Navbar component
  *
@@ -19,6 +19,13 @@ const Navbar = () => {
         <p className="text-4xl font-bold">
           <Image src={logo} height="80px" width="280px" alt="Divvy logo" />
         </p>
+        <a
+          href="https://github.com/piyush97/divvy"
+          className="float-right h-8 text-pink-500"
+        >
+          {" "}
+          <FaGithub />
+        </a>
         <div className="flex mt-4">
           <Menu />
         </div>
