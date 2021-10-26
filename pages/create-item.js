@@ -95,7 +95,7 @@ const CreateItem = () => {
           }
         />
         <input
-          placeholder="Asset Price in Eth"
+          placeholder="Asset Price in Matic"
           className="p-4 mt-2 border rounded"
           onChange={(e) =>
             updateFormInput({ ...formInput, price: e.target.value })
