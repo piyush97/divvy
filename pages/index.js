@@ -8,7 +8,7 @@ import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
 import { nftaddress, nftmarketaddress } from "../config";
 
 /**
- * @function Index
+ * @function Index - The main page of the application
  * @description The main page of the application.
  * @returns {JSX.Element}
  *
