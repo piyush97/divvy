@@ -6,8 +6,9 @@ import Web3Modal from "web3modal";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
 import { nftaddress, nftmarketaddress } from "../config";
+import { INFRURA_BASE_URL } from "../utils/constants/urls";
 
-const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
+const client = ipfsHttpClient(`${INFRURA_BASE_URL}:5001/api/v0`);
 
 const CreateItem = () => {
   const [fileUrl, setFileUrl] = useState(null);
@@ -24,7 +25,7 @@ const CreateItem = () => {
       const added = await client.add(file, {
         progress: (prog) => console.log(`received: ${prog}`),
       });
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+      const url = `${INFRURA_BASE_URL}/ipfs/${added.path}`;
       setFileUrl(url);
     } catch (error) {
       console.log("Error uploading file: ", error);
@@ -41,7 +42,7 @@ const CreateItem = () => {
     });
     try {
       const added = await client.add(data);
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+      const url = `${INFRURA_BASE_URL}/ipfs/${added.path}`;
       /* after file is uploaded to IPFS, pass the URL to save it on Polygon */
       createSale(url);
     } catch (error) {
