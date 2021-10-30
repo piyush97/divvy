@@ -1,0 +1,5 @@
+.Switcher input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #EC4899;
+  /* transition: ease-in-out .5s; */
+}
