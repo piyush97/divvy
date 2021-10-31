@@ -1,6 +1,7 @@
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import ThemeProvider from "../providers/ThemeProvider";
 import "../styles/globals.css";
 
 /**
@@ -12,9 +13,11 @@ import "../styles/globals.css";
 const MyApp = ({ Component, pageProps }) => {
   return (
     <>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+      <ThemeProvider>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </ThemeProvider>
     </>
   );
 };

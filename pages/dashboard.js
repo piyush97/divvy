@@ -1,10 +1,11 @@
 import axios from "axios";
 import { ethers } from "ethers";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Web3Modal from "web3modal";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
 import { nftaddress, nftmarketaddress } from "../config";
+import { ThemeContext } from "../providers/ThemeProvider";
 
 const CreatorDashboard = () => {
   const [nfts, setNfts] = useState([]);
@@ -13,6 +14,8 @@ const CreatorDashboard = () => {
   useEffect(() => {
     loadNFTs();
   }, []);
+  const { mode } = useContext(ThemeContext);
+
   async function loadNFTs() {
     const web3Modal = new Web3Modal({
       network: "mainnet",
@@ -57,7 +60,7 @@ const CreatorDashboard = () => {
   return (
     <div>
       <div className="p-4">
-        <h2 className="py-2 text-2xl">Items Created</h2>
+        <h2 className={`py-2 text-2xl ${mode === 'dark' ? 'text-white' : ''}`}>Items Created</h2>
         <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-4">
           {nfts.map((nft, i) => (
             <div key={i} className="overflow-hidden border shadow rounded-xl">

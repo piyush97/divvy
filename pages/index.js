@@ -1,11 +1,12 @@
 import axios from "axios";
 import { ethers } from "ethers";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 import Web3Modal from "web3modal";
 import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
 import { nftaddress, nftmarketaddress } from "../config";
+import { ThemeContext } from "../providers/ThemeProvider";
 
 /**
  * @function Index - The main page of the application
@@ -21,6 +22,7 @@ const Home = () => {
   useEffect(() => {
     loadNFTs();
   }, []);
+  const { mode } = useContext(ThemeContext);
 
   async function loadNFTs() {
     const provider = new ethers.providers.JsonRpcProvider();
@@ -72,8 +74,8 @@ const Home = () => {
   }
   if (loadingState === "loaded" && !nfts.length)
     return (
-      <h1 className="min-h-screen px-20 py-10 text-3xl flex-center">
-        <center className="top-1/2 flex-center">
+      <h1 className={`min-h-screen px-20 py-10 text-3xl flex-center`}>
+        <center className={`top-1/2 flex-center ${mode === 'dark' ? 'text-white' : ''}`}>
           No items in marketplace
           <Loader
             type="BallTriangle"
@@ -86,7 +88,7 @@ const Home = () => {
       </h1>
     );
   return (
-    <div className="flex justify-center ">
+    <div className={`flex justify-center`}>
       <div className="px-4" style={{ maxWidth: "1600px" }}>
         <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-3">
           {nfts.map((nft, i) => (
